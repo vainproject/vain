@@ -25,11 +25,11 @@ class VainServiceProvider extends ServiceProvider
 
     protected $facades = [
         // Custom package facades
-        'Inspiring' => \Illuminate\Foundation\Inspiring::class,
-        'Menu' => \Dowilcox\KnpMenu\Facades\Menu::class,
-        'Form' => \Collective\Html\FormFacade::class,
-        'Html' => \Collective\Html\HtmlFacade::class,
-        'Breadcrumbs' => \DaveJamesMiller\Breadcrumbs\Facade::class
+        'Inspiring'   => \Illuminate\Foundation\Inspiring::class,
+        'Menu'        => \Dowilcox\KnpMenu\Facades\Menu::class,
+        'Form'        => \Collective\Html\FormFacade::class,
+        'Html'        => \Collective\Html\HtmlFacade::class,
+        'Breadcrumbs' => \DaveJamesMiller\Breadcrumbs\Facade::class,
     ];
 
     /**
@@ -101,7 +101,7 @@ class VainServiceProvider extends ServiceProvider
     protected function registerConsole()
     {
         $this->commands([
-            Install::class
+            Install::class,
         ]);
     }
 
@@ -113,7 +113,7 @@ class VainServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            Install::class
+            Install::class,
         ];
     }
 }
