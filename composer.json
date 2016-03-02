@@ -14,9 +14,8 @@
         "dowilcox/knp-menu-laravel": "dev-master"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0",
+        "orchestra/testbench": "^3.1.4",
         "codeclimate/php-test-reporter": "dev-master"
     },
     "autoload": {
@@ -24,7 +23,12 @@
             "Vain\\": "src/Vain/"
         }
     },
-    "config": {
-        "preferred-install": "dist"
+    "autoload-dev": {
+        "psr-4": {
+            "Vain\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
