@@ -78,6 +78,8 @@ class VainServiceProvider extends ServiceProvider
         $this->registerServiceProviders();
 
         $this->registerFacades();
+
+        $this->registerConsole();
     }
 
     protected function registerServiceProviders()
@@ -98,10 +100,9 @@ class VainServiceProvider extends ServiceProvider
 
     protected function registerConsole()
     {
-        $this->app->singleton('command.vain.install', function($app) {
-
-            return new Install();
-        });
+        $this->commands([
+            Install::class
+        ]);
     }
 
     /**
@@ -112,7 +113,7 @@ class VainServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'command.vain.install'
+            Install::class
         ];
     }
 }
