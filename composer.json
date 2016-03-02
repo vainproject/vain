@@ -7,15 +7,10 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "laravel/socialite": "~2.0",
         "laravelcollective/html": "5.1.*",
-        "laravelrus/localized-carbon": "dev-master",
         "davejamesmiller/laravel-breadcrumbs": "3.*",
         "pingpong/modules": "2.1.*",
-        "dowilcox/knp-menu-laravel": "dev-master",
-        "baum/baum": "~1.1",
-        "barryvdh/laravel-debugbar": "2.0.*",
-        "filp/whoops": "1.1.*"
+        "dowilcox/knp-menu-laravel": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

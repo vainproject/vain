@@ -4,9 +4,34 @@ namespace Vain\Providers;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
+use Vain\Console\Commands\Install;
 
 class VainServiceProvider extends ServiceProvider
 {
+    protected $providers = [
+        // Application Service Providers...
+        ConfigServiceProvider::class,
+        MenuServiceProvider::class,
+
+        // Package service provider
+        \Pingpong\Modules\ModulesServiceProvider::class,
+        \Collective\Html\HtmlServiceProvider::class,
+        \Dowilcox\KnpMenu\MenuServiceProvider::class,
+        \DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+
+        // In-app packages, may be excluded sometimes later
+        \Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider::class,
+    ];
+
+    protected $facades = [
+        // Custom package facades
+        'Inspiring' => \Illuminate\Foundation\Inspiring::class,
+        'Menu' => \Dowilcox\KnpMenu\Facades\Menu::class,
+        'Form' => \Collective\Html\FormFacade::class,
+        'Html' => \Collective\Html\HtmlFacade::class,
+        'Breadcrumbs' => \DaveJamesMiller\Breadcrumbs\Facade::class
+    ];
+
     /**
      * Bootstrap any application services.
      *
@@ -14,11 +39,29 @@ class VainServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->bootTranslations();
+
+        $this->bootViews();
+    }
+
+    protected function bootTranslations()
+    {
         $langPath = __DIR__.'/../../../resources/lang';
         $this->loadTranslationsFrom($langPath, 'vain');
 
+        $this->publishes([
+            __DIR__.'/path/to/translations' => base_path('resources/lang/vendor/courier'),
+        ]);
+    }
+
+    protected function bootViews()
+    {
         $viewPath = __DIR__.'/../../../resources/views';
         $this->loadViewsFrom($viewPath, 'vain');
+
+        $this->publishes([
+            $viewPath => base_path('resources/views/vendor/vain'),
+        ]);
     }
 
     /**
@@ -32,12 +75,6 @@ class VainServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // bind exception handler
-        $this->app->singleton(
-            'Illuminate\Contracts\Debug\ExceptionHandler',
-            'Vain\Exceptions\Handler'
-        );
-
         $this->registerServiceProviders();
 
         $this->registerFacades();
@@ -45,46 +82,37 @@ class VainServiceProvider extends ServiceProvider
 
     protected function registerServiceProviders()
     {
-        /*
-        * Application Service Providers...
-        */
-        $this->app->register(ConfigServiceProvider::class);
-        $this->app->register(AuthServiceProvider::class);
-        $this->app->register(BusServiceProvider::class);
-        $this->app->register(EventServiceProvider::class);
-        $this->app->register(RouteServiceProvider::class);
-        $this->app->register(MenuServiceProvider::class);
-
-        /*
-         * Package service provider
-         */
-        $this->app->register(\Pingpong\Modules\ModulesServiceProvider::class);
-        $this->app->register(\Collective\Html\HtmlServiceProvider::class);
-        $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
-        $this->app->register(\Laravel\Socialite\SocialiteServiceProvider::class);
-        $this->app->register(\Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider::class);
-        $this->app->register(\Dowilcox\KnpMenu\MenuServiceProvider::class);
-        $this->app->register(\DaveJamesMiller\Breadcrumbs\ServiceProvider::class);
-
-        // in-app packages, may be excluded sometimes later
-        $this->app->register(\Vain\Packages\RealmAPI\Providers\RealmApiServiceProvider::class);
+        foreach ($this->providers as $provider) {
+            $this->app->register($provider);
+        }
     }
 
     protected function registerFacades()
     {
         $loader = AliasLoader::getInstance();
 
-        /*
-         * Custom package facades
-         */
-        $loader->alias('Inspiring', \Illuminate\Foundation\Inspiring::class);
-        $loader->alias('Debugbar', \Barryvdh\Debugbar\Facade::class);
-        $loader->alias('Socialize', \Laravel\Socialite\Facades\Socialite::class);
-        $loader->alias('LocalizedCarbon', \Laravelrus\LocalizedCarbon\LocalizedCarbon::class);
-        $loader->alias('DiffFormatter', \Laravelrus\LocalizedCarbon\DiffFactoryFacade::class);
-        $loader->alias('Menu', \Laravelrus\LocalizedCarbon\DiffFactoryFacade::class);
-        $loader->alias('Form', \Collective\Html\FormFacade::class);
-        $loader->alias('Html', \Collective\Html\HtmlFacade::class);
-        $loader->alias('Breadcrumbs', \DaveJamesMiller\Breadcrumbs\Facade::class);
+        foreach ($this->facades as $alias => $class) {
+            $loader->alias($alias, $class);
+        }
+    }
+
+    protected function registerConsole()
+    {
+        $this->app->singleton('command.vain.install', function($app) {
+
+            return new Install();
+        });
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [
+            'command.vain.install'
+        ];
     }
 }
