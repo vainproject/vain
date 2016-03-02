@@ -1,5 +1,6 @@
 <?php
 
+namespace Vain\Test;
 
 class ExampleTest extends TestCase
 {

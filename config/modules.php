@@ -104,7 +104,7 @@ return [
     'scan' => [
         'enabled' => true,
         'paths'   => [
-            base_path('vendor/*/*'),
+            base_path('vendor/vainproject/*/src/*'),
         ],
     ],
 
