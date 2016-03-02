@@ -49,7 +49,5 @@ class RouteVoter implements VoterInterface
                 return true;
             }
         }
-
-        return;
     }
 }
