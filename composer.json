@@ -9,8 +9,9 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "5.1.*",
-        "davejamesmiller/laravel-breadcrumbs": "3.*",
         "pingpong/modules": "2.1.*",
+        "vainproject/vain-user": "dev-master",
+        "davejamesmiller/laravel-breadcrumbs": "3.*",
         "dowilcox/knp-menu-laravel": "dev-master"
     },
     "require-dev": {
