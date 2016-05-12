@@ -54,6 +54,6 @@ trait Configurator
             throw new InvalidArgumentException('Cannot find realm \''.$realm.'\' in realm config, make sure it is setup correctly');
         }
 
-        return $config[ $realm ];
+        return $config[$realm];
     }
 }

@@ -36,13 +36,13 @@ class EmulatorFactory
     {
         if (array_key_exists($realm, $this->instances)) {
             // since we can modify the cache we may update the singleton
-            $this->instances[ $realm ]->setUseCache($useCache);
+            $this->instances[$realm]->setUseCache($useCache);
         } else {
             // resolve new instance
-            $this->instances[ $realm ] = $this->resolveEmulator($realm, $useCache);
+            $this->instances[$realm] = $this->resolveEmulator($realm, $useCache);
         }
 
-        return $this->instances[ $realm ];
+        return $this->instances[$realm];
     }
 
     /**

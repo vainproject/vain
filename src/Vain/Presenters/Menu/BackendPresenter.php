@@ -34,19 +34,19 @@ class BackendPresenter extends VainPresenter
         // create an array than can be imploded as a class list
         $class = (array) $item->getAttribute('class');
         if ($item->getLevel() === 1) {
-            $class[ ] = 'treeview';
+            $class[] = 'treeview';
         }
 
         if ($this->matcher->isCurrent($item)
-            || $this->matcher->isAncestor($item, $options[ 'matchingDepth' ])
+            || $this->matcher->isAncestor($item, $options['matchingDepth'])
         ) {
-            $class[ ] = $options[ 'currentClass' ];
+            $class[] = $options['currentClass'];
         }
 
         // retrieve the attributes and put the final class string back on it
         $attributes = $item->getAttributes();
         if (!empty($class)) {
-            $attributes[ 'class' ] = implode(' ', $class);
+            $attributes['class'] = implode(' ', $class);
         }
 
         // opening li tag
@@ -63,10 +63,10 @@ class BackendPresenter extends VainPresenter
 
         // renders the embedded ul
         $childrenClass = (array) $item->getChildrenAttribute('class');
-        $childrenClass[ ] = 'treeview-menu';
+        $childrenClass[] = 'treeview-menu';
 
         $childrenAttributes = $item->getChildrenAttributes();
-        $childrenAttributes[ 'class' ] = implode(' ', $childrenClass);
+        $childrenAttributes['class'] = implode(' ', $childrenClass);
 
         $html .= $this->renderList($item, $childrenAttributes, $options);
 
