@@ -11,7 +11,7 @@
     <meta name="description" content="@yield('description', trans('vain::meta.description'))">
     <meta name="robots" content="index,follow">
 
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Merriweather:400,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Merriweather:400,400italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('static/css/frontend.css') }}">
 </head>
 <body>
