@@ -61,7 +61,7 @@ trait TranslatableTrait
      */
     private function store($locale, $content)
     {
-        $this->_content[ $locale ] = $content;
+        $this->_content[$locale] = $content;
     }
 
     /**
@@ -73,7 +73,7 @@ trait TranslatableTrait
      */
     private function get($locale)
     {
-        return $this->_content[ $locale ];
+        return $this->_content[$locale];
     }
 
     /**

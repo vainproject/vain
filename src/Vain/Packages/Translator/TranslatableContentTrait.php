@@ -34,7 +34,7 @@ trait TranslatableContentTrait
             $key = $fillable.$this->locale_delimiter.$locale;
 
             $value = array_key_exists($key, $attributes)
-                ? $attributes[ $key ]
+                ? $attributes[$key]
                 : null;
 
             if ($value !== null) {
