@@ -3,7 +3,6 @@
 namespace Vain\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use Pingpong\Modules\Facades\Module;
 
 class Install extends Command
@@ -13,7 +12,7 @@ class Install extends Command
      *
      * @var string
      */
-    protected $signature = 'install';
+    protected $signature = 'vain:install';
 
     /**
      * The console command description.
@@ -59,6 +58,6 @@ class Install extends Command
      */
     private function getModules()
     {
-        return new Collection(Module::getOrdered());
+        return collect(Module::getOrdered());
     }
 }
