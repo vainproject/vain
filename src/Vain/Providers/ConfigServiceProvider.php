@@ -33,18 +33,4 @@ class ConfigServiceProvider extends ServiceProvider
             __DIR__.'/../../../config/modules.php', 'modules'
         );
     }
-
-    /**
-     * we just prioritize our service provider over the config from
-     * other packages.
-     *
-     * @param string $path
-     * @param string $key
-     */
-    protected function mergeConfigFrom($path, $key)
-    {
-        $config = $this->app['config']->get($key, []);
-
-        $this->app['config']->set($key, array_merge($config, require $path));
-    }
 }
