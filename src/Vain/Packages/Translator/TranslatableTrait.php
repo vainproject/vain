@@ -10,6 +10,18 @@ trait TranslatableTrait
     private $_content = [];
 
     /**
+     * Deletes related content entries on model instance deletion
+     */
+    public static function bootTranslatableTrait()
+    {
+        self::deleting(function ($model) {
+            if (method_exists($model, 'contents')) {
+                $model->contents()->delete();
+            }
+        });
+    }
+
+    /**
      * accessor for content current user language.
      *
      * @param $value
