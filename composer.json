@@ -12,7 +12,8 @@
         "pingpong/modules": "2.1.*",
         "vainproject/vain-user": "dev-master",
         "davejamesmiller/laravel-breadcrumbs": "3.*",
-        "dowilcox/knp-menu-laravel": "dev-master"
+        "dowilcox/knp-menu-laravel": "dev-master",
+        "spatie/laravel-medialibrary": "^4.9"
     },
     "require-dev": {
         "franzl/studio": "^0.11.0",
