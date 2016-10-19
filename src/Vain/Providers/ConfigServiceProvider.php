@@ -36,9 +36,5 @@ class ConfigServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../../../config/laravel-medialibrary.php', 'laravel-medialibrary'
         );
-
-        $this->mergeConfigFrom(
-            __DIR__.'/../../../config/filesystems.php', 'filesystems'
-        );
     }
 }
