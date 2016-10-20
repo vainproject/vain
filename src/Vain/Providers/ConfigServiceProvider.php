@@ -37,4 +37,17 @@ class ConfigServiceProvider extends ServiceProvider
             __DIR__.'/../../../config/laravel-medialibrary.php', 'laravel-medialibrary'
         );
     }
+
+    public function boot()
+    {
+        // set media disk
+        $currentDiskConfig = $this->app['config']->get('filesystems.disks', []);
+
+        $this->app['config']->set('filesystems.disks', array_merge($currentDiskConfig, [
+            'defaultMedia' => [
+                'driver' => 'local',
+                'root'   => public_path().'/media',
+            ]
+        ]));
+    }
 }
