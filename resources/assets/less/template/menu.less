@@ -1,0 +1,175 @@
+#wrap{
+  position: relative;
+  backface-visibility: hidden;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: 1030;
+  background-color: @white;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+}
+.menu-right{
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 350px;
+  height: 100%;
+  background-color: #12131A;
+  font-size: 13px;
+  font-weight: normal;
+  -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  -o-transform: translate(0);
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+}
+.menu-open{
+  -webkit-transform: translate3d(-350px, 0, 0) scale3d(1, 1, 1);
+  -moz-transform: translate3d(-350px, 0, 0) scale3d(1, 1, 1);
+  -ms-transform: translateX(-350px);
+  -o-transform: translate(-350px, 0);
+  transform: translate3d(-350px, 0, 0) scale3d(1, 1, 1);
+  overflow: none;
+}
+.menu-search {
+  position: relative;
+}
+#menu>ul {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-right: -15px;
+  list-style: none;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space:nowrap;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+#menu>ul::-webkit-scrollbar {
+  display: none;
+}
+#menu>ul>li{
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+#menu>ul>li a i{
+  margin-right: 15px;
+}
+#menu>ul>li a{
+  color: #737d83;
+  border: 0;
+  position: relative;
+  display: block;
+  padding: 15px 15px;
+}
+#menu>ul>li a:hover,
+#menu>ul>li a:focus,
+#menu li.active > a {
+  background-color: #1e1f27 !important;
+  color: @white;
+  color: @primary;
+  text-decoration: none;
+}
+#menu .header {
+  background-color: #1C1D24;
+  height: 55px;
+  margin-bottom: 0;
+  padding-top: 9px;
+  color: #737d83;
+}
+#menu .close-menu{
+  font-size: 16px;
+  text-shadow: none;
+  color: @white;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 55px;
+  border: 0;
+}
+#menu .close-menu:hover,
+#menu .close-menu:focus{
+  background-color: @secondary;
+  color: #383838;
+}
+#menu .close-menu i{
+  line-height: 55px;
+  padding-left: 20px;
+}
+#menu .header input {
+  margin: 9px 0 0 28px;
+  border: 0;
+  width: 141px;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #1C1D24;
+  top: 0;
+}
+#menu .header input:focus {
+  border: 0;
+  box-shadow: none;
+  outline: none;
+}
+.searchico {
+  position: relative;
+  left: 16px;
+}
+#menu .badge {
+  background-color: @primary;
+  color: #12131A;
+  position: absolute;
+  right: 15px;
+}
+#menu a span {
+  position: absolute;
+  right: 15px;
+}
+/*  submenu  */
+.submenu b.caret {
+  position: absolute;
+  right: 15px;
+  margin-top: 7px;
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.submenu {
+  cursor: pointer;
+}
+.submenu-list{
+  list-style: none;
+  padding: 0;
+  max-height: 0;
+  overflow-y: hidden;
+  background-color: #1c1d24;
+}
+.submenu-list li {
+  overflow: hidden;
+}
+.submenu-list li a {
+  position: relative;
+  display: block;
+  padding: 10px 15px 10px 44px !important;
+}
+.submenu-open {
+  background-color: #1c1d24;
+}
+.submenu-open .submenu-list{
+  max-height: 500px;
+}
+.submenu-open b.caret {
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}

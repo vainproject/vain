@@ -1,0 +1,86 @@
+.btn {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0 26px;
+  line-height: 38px;
+  display: inline-block;
+  margin: 0 10px 4px 0;
+  height: 40px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  background: @primary;
+  color: @white;
+  border: 1px solid @primary;
+  border-radius: 4px;
+}
+.btn:hover,
+.btn:active,
+.btn:focus {
+  color: @white;
+  top: 0;
+  text-decoration: none;
+  background-color: @secondary;
+  box-shadow: none;
+  border: 1px solid @secondary;
+}
+.btn.outline {
+  background: transparent;
+  border: 2px solid @primary;
+  box-shadow: none;
+  color: @primary;
+  text-decoration: none;
+}
+.btn.outline:hover,
+.btn.outline:focus {
+  background: @primary;
+  border-color: @primary;
+  color:@white;
+  top:0;
+  text-decoration: none;
+}
+.btn.outline-white {
+  background: transparent;
+  border: 1px solid @white;
+  box-shadow: none;
+  color: @white;
+  text-decoration: none;
+}
+.btn.outline-white:hover,
+.btn.outline-white:focus {
+  background: @white;
+  border-color: @white;
+  color:#383838;
+  top:0;
+  text-decoration: none;
+}
+.btn-error{
+  background-color: #F05557 !important;
+}
+.btn i {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+}
+.btn i:before {
+  line-height: 39px;
+}
+.btn i.left {
+  padding-right: 10px;
+}
+.btn i.right {
+  padding-left: 10px;
+}
+.btn.pull-right {
+  margin: 0;
+}
+.btn.pull-left {
+  margin: 0;
+}
+.btn span {
+  line-height: 22px;
+  vertical-align: text-bottom;
+}

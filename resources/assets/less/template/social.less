@@ -1,0 +1,58 @@
+.social-links,
+.social-profiles {
+  list-style:none;
+  margin:0;
+  padding:0;
+  /* margin-bottom: 29px; */
+}
+.social-links li,
+.social-profiles li{
+  display:inline-block;
+  margin: 0 5px 0 0;
+  box-shadow: none;
+  -webkit-transition:all .3s ease-out;
+  transition:all .3s ease-out;
+}
+.social-links li a {
+  background: transparent;
+  display:block;
+  color: #ccc;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align:center;
+  border-radius:50%;
+  -webkit-transition:all .3s ease-out;
+  transition:all .3s ease-out;
+}
+.social-links li a i{
+  /* font-size: 16px; */
+}
+.social-links li a:hover {
+  color: #121417;
+  background:@primary;
+  text-decoration: none;
+  border-color: @primary;
+}
+
+.social-links.outline li a {
+  color: @primary;
+  border: 1px solid @primary;
+}
+.social-links.outline li a:hover {
+  color: @white;
+  background:@primary;
+  text-decoration: none;
+  border-color: @primary;
+}
+.social-links.outline-white li a {
+  color: @white;
+  border: 1px solid @white;
+}
+.social-links.outline-white li a:hover {
+  color: @primary;
+  background:@white;
+  text-decoration: none;
+  border-color: @white;
+}

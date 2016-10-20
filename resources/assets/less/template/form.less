@@ -1,0 +1,141 @@
+*[data-dependent-field] {
+  display: none;
+}
+
+.myform {
+  padding-top: 5px;
+}
+.myform .form-group label{
+  display:none;
+  font-size:18px;
+  line-height:24px;
+  font-weight:100;
+  text-align: center;
+}
+.myform .no-placeholder .form-group label{
+  display:block;
+}
+
+.myform.no-placeholder .controls {
+  margin-top:0;
+}
+
+.myform .form-control,
+.input-group .form-control {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  display:inline;
+  background:@white;
+  border:none;
+  /* border-radius:5px; */
+  outline:none;
+  height: 44px;
+  font-size:16px;
+  font-weight:400;
+  vertical-align:top;
+  border: 2px solid #ccc;
+  box-shadow:none;
+  /*  ios gradiet fix */
+  -webkit-appearance: none;
+}
+
+.special {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.controls {
+  position: relative;
+}
+.myform textarea.form-control {
+  height:auto;
+  max-width:100%;
+  min-width:100%;
+  font-size: 16px;
+  font-weight:400;
+  line-height:24px;
+  padding-top: 8px;
+  vertical-align:top;
+}
+
+.myform .inputError,
+.myform textarea.form-control.inputError,
+.myform .inputError {
+  outline:none;
+  border:2px solid #F05557;
+}
+
+.myform .error-message {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  position: absolute;
+  top: 6px;
+  right: 15px;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight:400;
+  color:#F05557;
+  z-index:10;
+}
+.myform .form-control:focus,
+.myform textarea.inputError:focus,
+.input-group .form-control:focus {
+  outline:none;
+  border: 2px solid @primary;
+}
+
+.myform.no-placeholder .error-message {
+  top:0;
+}
+.myform .btn {
+  margin: 0;
+  height: 44px;
+}
+/* fix newsleter form */
+.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group {
+  margin-left: 0;
+}
+.input-group .form-control,
+.input-group .form-control:focus{
+  border-right-width: 0px;
+}
+#main-footer,
+#social {
+  padding: 40px 0 20px;
+}
+.checkbox, .radio {
+  margin-bottom: 12px;
+  padding-left: 32px;
+  position: relative;
+  -webkit-transition: color 0.25s linear;
+  transition: color 0.25s linear;
+  font-size: 14px;
+  line-height: 1.5;
+}
+label.show {
+  display: block;
+  text-decoration: none;
+}
+input[type=radio],input[type=checkbox] {
+  margin: 4px 7px 0 0;
+  line-height: normal;
+  font-size: 21px;
+  text-align: center;
+}
+form p {
+  margin-top: 16px;
+}
+#total {
+  font-weight: 600;
+}
+
+
+.form-control-inline {
+  min-width: 0;
+  width: auto!important;
+  display: inline!important;
+}
+
+.table tbody>tr>td.vert-align {
+  vertical-align: middle;
+}
+address {
+  font-size: 14px;
+}
